@@ -25,7 +25,11 @@ module.exports = {
   },
   async findAll(ctx) {
     try {
-      const companies = await ctx.db.Company.findAll();
+      const companies = await ctx.db.Company.findAll({
+        include: [
+          { model: ctx.db.Job }
+        ]
+      });
       ctx.body = {
         message: 'All companies',
         success: true,

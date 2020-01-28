@@ -1,9 +1,10 @@
 module.exports = {
   async create(ctx) {
     try {
-      const { name } = ctx.request.body;
-      if (!name) throw (500, 'Please specify job name');
-      const job = await ctx.db.Job.create({ name });
+      const { name, CompanyId } = ctx.request.body;
+      if (!name) throw (500, 'Please specify job name!');
+      if (!CompanyId) throw (500, 'Please specify company id!');
+      const job = await ctx.db.Job.create({ name, CompanyId });
       ctx.body = {
         message: 'Job created!',
         success: true,
