@@ -2,6 +2,12 @@ require('dotenv').config();
 const Koa = require('koa');
 const Router = require('koa-router');
 const bodyParser = require('koa-bodyparser');
+const db = require('./models');
+db.sequelize.sync()
+  .then(() => {console.log('Database models synced!')})
+  .catch(error => {
+    console.error(error);
+  });
 
 const app = new Koa();
 const router = new Router({

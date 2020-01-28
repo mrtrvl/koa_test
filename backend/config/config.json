@@ -1,0 +1,23 @@
+ {
+  "development": {
+    "username": "root",
+    "password": "lkjdglkjdfv",
+    "database": "koa_api_db",
+    "host": "db",
+    "dialect": "mariadb"
+  },
+  "test": {
+    "username": "root",
+    "password": null,
+    "database": "database_test",
+    "host": "db",
+    "dialect": "mariadb"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "db",
+    "dialect": "mariadb"
+  }
+}
