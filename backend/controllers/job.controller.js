@@ -1,6 +1,5 @@
 module.exports = {
   async create(ctx) {
-    try {
       const { name, CompanyId } = ctx.request.body;
       if (!name) throw (500, 'Please specify job name!');
       if (!CompanyId) throw (500, 'Please specify company id!');
@@ -10,16 +9,8 @@ module.exports = {
         success: true,
         job
       }
-    } catch (error) {
-      ctx.status = 500;
-      ctx.body = {
-        message: error,
-        success: false
-      }
-    }
   },
   async findAll(ctx) {
-    try {
       const jobs = await ctx.db.Job.findAll({
         include: [
           {
@@ -32,16 +23,8 @@ module.exports = {
         success: true,
         jobs
       }
-    } catch (error) {
-      ctx.status = 500;
-      ctx.body = {
-        message: error,
-        success: false
-      }
-    }
   },
   async findOne(ctx) {
-    try {
       const { id } = ctx.params;
       if (!id) throw (500, 'No id specified!');
       const job = await ctx.db.Job.findAll({ where: { id }});
@@ -51,17 +34,8 @@ module.exports = {
         success: true,
         job
       }
-    } catch (error) {
-      ctx.status = 500;
-      ctx.body = {
-        message: error,
-        success: false
-      }
-    }
   },
   async destroy(ctx) {
-    
-    try {
       const { id } = ctx.params;
       if (!id) throw (500, 'No id specified!');
       const job = await ctx.db.Job.destroy({ where: { id }});
@@ -70,16 +44,8 @@ module.exports = {
         success: true,
         job
       }
-    } catch (error) {
-      ctx.status = 500;
-      ctx.body = {
-        message: error,
-        success: false
-      }
-    }
   },
   async update(ctx) {
-    try {
       const { id } = ctx.params;
       if (!id) throw (500, 'No id specified!');
       const { name } = ctx.request.body;
@@ -94,12 +60,5 @@ module.exports = {
         success: true,
         job
       }
-    } catch (error) {
-      ctx.status = 500;
-      ctx.body = {
-        message: error,
-        success: false
-      }
-    }
   }
 }
