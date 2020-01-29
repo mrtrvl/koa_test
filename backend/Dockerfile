@@ -6,4 +6,5 @@ RUN npm install
 COPY . .
 VOLUME .:/usr/src/app
 EXPOSE ${PORT}
+EXPOSE 9229
 CMD ["npm", "run", "dev"]
