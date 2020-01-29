@@ -8,7 +8,8 @@ module.exports = {
       const company = await ctx.db.Company.create({
         name,
         city,
-        address
+        address,
+        UserId: ctx.state.user
       });
       ctx.body = {
         message: 'Company created!',
@@ -26,6 +27,9 @@ module.exports = {
   async findAll(ctx) {
     try {
       const companies = await ctx.db.Company.findAll({
+        where: {
+          UserId: ctx.state.user
+        },
         include: [
           { model: ctx.db.Job }
         ]
