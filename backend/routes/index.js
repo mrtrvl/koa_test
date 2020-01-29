@@ -5,7 +5,8 @@ const router = new Router({
 const {
   CompanyController,
   JobController,
-  ApplicationController
+  ApplicationController,
+  UserController
  } = require('../controllers');
 
 // Company routes
@@ -28,4 +29,10 @@ router
 router
  .post('/candidate', ApplicationController.create)
  .get('/candidate', ApplicationController.findAll);
+
+ // Application routes
+router
+.post('/user', UserController.create)
+.get('/user', UserController.findAll)
+.get('/user/:id', UserController.findOne);
 module.exports = router;
