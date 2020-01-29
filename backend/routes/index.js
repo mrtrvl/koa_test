@@ -32,7 +32,8 @@ router
 
  // Application routes
 router
-.post('/user', UserController.create)
-.get('/user', UserController.findAll)
-.get('/user/:id', UserController.findOne);
+  .post('/user', UserController.create)
+  .get('/user', UserController.findAll)
+  .get('/user/:id', UserController.findOne)
+  .post('/login/', UserController.login);
 module.exports = router;
