@@ -8,6 +8,9 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: {
         allowNull: false
       }
+    }),
+    Job.belongsToMany(models.Candidate, {
+      through: 'Application'
     });
   };
   return Job;

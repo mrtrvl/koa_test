@@ -4,7 +4,7 @@ const bodyParser = require('koa-bodyparser');
 const db = require('./models');
 const router = require('./routes');
 
-db.sequelize.sync()
+db.sequelize.sync({ force: false, alter: true })
   .then(() => {console.log('Database models synced!')})
   .catch(error => {
     console.error(error);

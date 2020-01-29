@@ -5,7 +5,7 @@ module.exports = {
       if (!name) throw (500, 'Please specify company name');
       if (!city) throw (500, 'Please specify company city');
       if (!address) throw (500, 'Please specify company address');
-      company = await ctx.db.Company.create({
+      const company = await ctx.db.Company.create({
         name,
         city,
         address

@@ -4,7 +4,8 @@ const router = new Router({
 });
 const {
   CompanyController,
-  JobController
+  JobController,
+  ApplicationController
  } = require('../controllers');
 
 // Company routes
@@ -21,6 +22,10 @@ router
   .get('/job', JobController.findAll)
   .get('/job/:id', JobController.findOne)
   .delete('/job/:id', JobController.destroy)
-  .put('/job/:id', JobController.update)
+  .put('/job/:id', JobController.update);
 
+// Application routes
+router
+ .post('/candidate', ApplicationController.create)
+ .get('/candidate', ApplicationController.findAll);
 module.exports = router;

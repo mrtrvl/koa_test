@@ -20,7 +20,13 @@ module.exports = {
   },
   async findAll(ctx) {
     try {
-      const jobs = await ctx.db.Job.findAll();
+      const jobs = await ctx.db.Job.findAll({
+        include: [
+          {
+            model: ctx.db.Candidate
+          }
+        ]
+      });
       ctx.body = {
         message: 'All jobs',
         success: true,
