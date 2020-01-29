@@ -9,6 +9,7 @@ const {
   UserController
  } = require('../controllers');
 const isAuthenticated = require('../polices/isAuthenticated');
+
 // Company routes
 router
   .post('/company', isAuthenticated, CompanyController.create)
@@ -36,4 +37,5 @@ router
   .get('/user', isAuthenticated, UserController.findAll)
   .get('/user/:id', isAuthenticated, UserController.findOne)
   .post('/login/', UserController.login);
+
 module.exports = router;

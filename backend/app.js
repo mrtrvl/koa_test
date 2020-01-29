@@ -5,7 +5,7 @@ const db = require('./models');
 const router = require('./routes');
 const serve = require('koa-static');
 
-db.sequelize.sync({ alter: true })
+db.sequelize.sync()
   .then(() => {console.log('Database models synced!')})
   .catch(error => {
     console.error(error);
